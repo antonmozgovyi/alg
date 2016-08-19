@@ -1,4 +1,4 @@
-const { readIntegerFile } = require('./util.js')
+const { readIntegerFile } = require('../util.js')
 
 const inversionsCount = require('./week-1/inversionsCount.js')
 const comparisonsCount = require('./week-2/comparisons_count.js')
