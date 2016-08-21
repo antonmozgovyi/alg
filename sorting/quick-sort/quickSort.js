@@ -41,48 +41,4 @@ function partition(array, pivotIndex, left, right) {
   return i - 1
 }
 
-  /**
-   * Sorts the (sub-)array
-   *
-   * @param {Array} array The target array
-   * @param {int} left The index of the leftmost element, defaults 0
-   * @param {int} left The index of the rightmost element,
-   defaults array.length-1
-   */
-  function sort(array, left, right) {
-
-    var pivot = null;
-
-    left = left || 0
-    //
-    // if(typeof left !== 'number') {
-    //   left = 0;
-    // }
-    //
-
-    // right = right || (array.length - 1)
-
-
-    if(!right) {
-      // console.log(right)
-      right = array.length - 1;
-    }
-
-    // effectively set our base
-    // case here. When left == right
-    // we'll stop
-    if(left >= right) return
-
-      // pick a pivot between left and right
-      // and update it once we've partitioned
-      // the array to values < than or > than
-      // the pivot value
-      pivot     = choosePivot(array, left, right)
-      newPivot  = partition(array, pivot, left, right)
-
-      sort(array, left, newPivot - 1)
-      sort(array, newPivot + 1, right)
-
-  }
-
 module.exports = quickSort
