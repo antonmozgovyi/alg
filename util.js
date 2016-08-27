@@ -11,7 +11,13 @@ function readGraphFromFile(name) {
     fs.readFileSync(name, { encoding: 'utf-8'})
       .split('\n')
       .filter(item => item)
-      .map(item => item.split('\t').filter(i => i).map(edge => (+edge)).slice(1))
+      .map(item => {
+        const data = item.split('\t').filter(i => i).map(edge => (+edge))
+        return {
+          name: data[0]
+        , edges: data.slice(1)
+        }
+      })
   )
 }
 
