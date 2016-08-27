@@ -12,7 +12,7 @@ function readGraphFromFile(name) {
       .split('\n')
       .filter(item => item)
       .map(item => {
-        const data = item.split('\t').filter(i => i).map(edge => (+edge))
+        const data = item.split('\t').filter(i => i.trim())
         return {
           name: data[0]
         , edges: data.slice(1)

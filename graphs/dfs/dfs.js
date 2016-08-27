@@ -15,4 +15,5 @@ function walk(graph, vertex) {
 function getNode(graph, name) {
   return graph.filter(v => v.name === name)[0]
 }
+
 module.exports = dfs
