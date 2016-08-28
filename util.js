@@ -21,7 +21,27 @@ function readGraphFromFile(name) {
   )
 }
 
+function readDirectedGraphFromFile(name) {
+  const graph = {}
+
+  fs.readFileSync(name, { encoding: 'utf-8' })
+    .split('\n')
+    .filter(row => row)
+    .forEach(row => {
+      const edge = row.split(' ')
+          , v = edge[0]
+          , u = edge[1]
+
+      graph[v] = graph[v] || { edges: [] }
+      graph[v].edges.push(u)
+      graph[u] = graph[u] || { edges: [] }
+    })
+
+  return graph
+}
+
 module.exports = {
   readIntegerFile
 , readGraphFromFile
+, readDirectedGraphFromFile
 }

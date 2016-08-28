@@ -1,0 +1,25 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "Algorithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonmozgovyi/alg.git"
+  },
+  "keywords": [
+    "algorithms"
+  ],
+  "author": "Anton Mozgovyi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antonmozgovyi/alg/issues"
+  },
+  "homepage": "https://github.com/antonmozgovyi/alg#readme",
+  "dependencies": {
+    "ramda": "^0.22.1"
+  }
+}
