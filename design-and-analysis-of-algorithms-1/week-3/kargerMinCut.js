@@ -1,11 +1,10 @@
 function kargerMinCut(graph) {
-  const input = graph.slice(0)
-
-
   let minCuts = Infinity
-  const repeats = Math.floor(graph.length  * graph.length * Math.log(graph.length))
+  const repeats = 100
 
   for (let i = 0; i < repeats; ++i) {
+    const input = JSON.parse(JSON.stringify(graph))
+
     const result = cut(input)
     if (minCuts > result[0].edges.length) minCuts = result[0].edges.length
   }
