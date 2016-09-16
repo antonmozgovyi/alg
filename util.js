@@ -24,8 +24,8 @@ function readGraphFromFile(name) {
 function readDirectedGraphFromFile(name) {
   const graph = {}
 
-  fs.readFileSync(name, { encoding: 'utf-8' })
-    .split('\n')
+  const data = fs.readFileSync(name, { encoding: 'utf-8' })
+    data.split('\n')
     .filter(row => row)
     .forEach(row => {
       const edge = row.split(' ')
@@ -37,6 +37,30 @@ function readDirectedGraphFromFile(name) {
       graph[u] = graph[u] || { edges: [] }
     })
 
+    delete data
+
+  return graph
+}
+
+function readDirectedWeightedGraph(name) {
+  const graph = {}
+
+  const data = fs.readFileSync(name, { encoding: 'utf-8' })
+    data.split('\n')
+    .filter(row => row)
+    .forEach(row => {
+      const edge = row.split(' ')
+          , v = edge[0]
+          , u = edge[1]
+          , distance = (+edge[2])
+
+      graph[v] = graph[v] || { edges: [] }
+      graph[v].edges.push({ key: u, distance })
+      graph[u] = graph[u] || { edges: [] }
+    })
+
+    delete data
+
   return graph
 }
 
@@ -44,4 +68,5 @@ module.exports = {
   readIntegerFile
 , readGraphFromFile
 , readDirectedGraphFromFile
+, readDirectedWeightedGraph
 }
